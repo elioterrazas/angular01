@@ -1,0 +1,37 @@
+
+<html data-ng-app>
+    <head>
+        <meta charset="utf-8">
+        <title>Instalando AngularJS</title>
+        <!--script src="<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.11/angular.min.js"></script-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.11/angular.min.js"></script>
+    </head>
+    <!--<body ng-controller="ConsolidadoController" > es raro ver que colocando un controller aqui toda la pagina deja de funcionar-->
+    <body>
+        <h1>Expresiones angular JS</h1>
+        <p>{{ 'entre llaves se ponen las expresiones' }}</p>
+        
+        
+            <p>{{ 'se pueden hacer aqui adentro operaciones' }}</p>
+        
+            <p>{{ 10+10 }}</p>
+        
+        <p>{{ 10+10 }} y facilmente se concatenan</p>
+        
+            <p>{{ 3*8 }} se realiza el calculo</p>
+        
+        <h2>Tiened de verdura</h2>
+        <ul>
+            <li> Apio =  {{ 50 | currency }} con la barra vertical | se define un filtro como aqui</li>
+            <li>Espinaca = {{ 50 | currency:"$" }}</li>
+            <li> brocoli {{50 +10 | currency:"$" }} importada de  {{inDia | uppercase }}</li>
+        </ul>
+        
+        <div ng-show="true">
+            las directiva de angular js son sensillas
+        </div>
+        <button data-ng-click="controladorBoton()" data-ng-show="false">
+            Presiona aqui si te gustan las directivas
+        </button>
+    </body>
+</html>

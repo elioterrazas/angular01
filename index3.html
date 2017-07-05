@@ -1,0 +1,22 @@
+<!doctype html>
+<html data-ng-app>
+    <head>
+        <meta charset="utf-8">
+        <title>Instalando AngularJS</title>
+        <!--script src="<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.11/angular.min.js"></script-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.11/angular.min.js"></script>
+    </head>
+    <!--<body ng-controller="ConsolidadoController" > es raro ver que colocando un controller aqui toda la pagina deja de funcionar-->
+    <body>
+        <div >
+            
+        <h1>Promocion de Mangos</h1>
+            <h2> {{2.15|currency: "Bs. "}} cada uno</h2>
+        <label>Cantidad de Mangos:</label>
+        <input type="text" ng-model="cantidad">
+            <br>
+            Precio Total:
+                
+        </div>
+    </body>
+</html>

@@ -1,0 +1,21 @@
+
+<html data-ng-app>
+    <head>
+        <meta charset="utf-8">
+        <title>Instalando AngularJS</title>
+        <!--script src="<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.11/angular.min.js"></script-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.11/angular.min.js"></script>
+    </head>
+    <!--<body ng-controller="ConsolidadoController" > es raro ver que colocando un controller aqui toda la pagina deja de funcionar-->
+    <body>
+        <h1>Modelos</h1>
+        <label>Nombre:</label>
+        <input type="text" ng-model="nombre">
+                
+        <div class="tarjeta">
+            <h3>Mi nombre es:</h3>
+            <h2>{{ nombre }}</h2>
+            <!--vimos aqui que los modelos sirven para guardar informacion que puede ser utilizada en toda la aplicacion en este caso generamos en el imput el modelo con el id "nombre"-->
+        </div>
+    </body>
+</html>
