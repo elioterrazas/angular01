@@ -1,0 +1,59 @@
+<!doctype html>
+<html data-ng-app="nombreApp">
+    <head>
+        <meta charset="utf-8">
+        <title>Instalando AngularJS</title>
+        <!--script src="<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.11/angular.min.js"></script-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.11/angular.min.js"></script>
+    </head>
+    <body>
+        
+        
+        <div ng-controller="controlador1">
+        
+        nombre:  {{ nombre }}
+        
+        </div>
+        <div ng-controller="controlador1">
+        
+        nombre:    {{ nombre }}
+        
+        </div>
+        
+        
+        
+        <div ng-controller="controlador2">
+        
+        nombre:    {{ nombre }}
+        
+        </div>
+        
+        <hr>
+        
+        
+        
+        <script>
+        //podemos ver que definimos varias veces al controlador1 para afectar su valor pero siempre lo debemos algo asi como redefinir
+        //asi tambien en el html podemos reciclar varias veces el mismo controlador y hacer uso de sus datos
+            var miAplicacion = angular.module( 'nombreApp',[] )
+            miAplicacion.controller('controlador1', ['$scope', function($scope){
+                
+                $scope.nombre= "Juan";
+                
+            }])
+            miAplicacion.controller('controlador1', ['$scope', function($scope){
+                
+                $scope.nombre= "Mario";
+                
+            }])
+            
+            //aqui definimos OTRO controlador que tenga las mismas variables definidas pero vemos que aunq el nombre de la variable es el mismo son totalmente independientes 
+            miAplicacion.controller('controlador2', ['$scope', function($scope){
+                
+                $scope.nombre= "enrique";
+                
+            }])
+        
+        </script>
+    </body>
+</html>
