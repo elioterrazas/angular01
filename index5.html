@@ -1,0 +1,43 @@
+<!doctype html>
+<html data-ng-app="miApp">
+    <head>
+        <meta charset="utf-8">
+        <title>Metodos</title>
+        <!--script src="<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.11/angular.min.js"></script-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.11/angular.min.js"></script>
+    </head>
+    <body>
+        
+        
+        <div ng-controller="circunferencia1">
+            
+            <label>Diametro</label>
+            
+            <input type="text" ng-model="diametro"><br>
+            
+            <button data-ng-click="calcularCircunferencia()"> Calcular Circunferencia</button>
+        
+            {{ circunferencia }}
+        
+        </div>
+        
+        
+        <script>
+            //un controlador suele tener por dentro algunos calculos, pero para calculos mas complejos se utilizan los metodos que van dentro de los controladores, aprenderemos como usar los metodos dentro de un controlador.
+            //basicamente un metodo es una funcion que vive dentro del controlador
+            //para que la funcion pueda ser llamada 
+            var miAplicacion = angular.module( 'miApp',[] )
+            miAplicacion.controller('circunferencia1', ['$scope', function($scope){
+                
+                var pi= 3.14
+                //un metodo es una funcion que vive dentro del controlador
+                $scope.calcularCircunferencia = function(){
+                    $scope.circunferencia=$scope.diametro * pi
+                }
+                //la funcion se lallama al momento de hacer click en el boton
+            }])
+            
+        
+        </script>
+    </body>
+</html>
