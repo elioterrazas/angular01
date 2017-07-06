@@ -1,5 +1,5 @@
 <!doctype html>
-<html data-ng-app>
+<html data-ng-app = "tiendaDeFruta">
     <head>
         <meta charset="utf-8">
         <title>Instalando AngularJS</title>
@@ -8,15 +8,33 @@
     </head>
     <!--<body ng-controller="ConsolidadoController" > es raro ver que colocando un controller aqui toda la pagina deja de funcionar-->
     <body>
-        <div >
+        <div ng-controller="controlador1" >
             
         <h1>Promocion de Mangos</h1>
             <h2> {{2.15|currency: "Bs. "}} cada uno</h2>
         <label>Cantidad de Mangos:</label>
         <input type="text" ng-model="cantidad">
             <br>
-            Precio Total:
+            Precio Total: {{ cantidad * precio | currency: "Bs. " }}
                 
         </div>
+        
+        <script>
+            var miAplicacion = angular.module('tiendaDeFruta', [] )//angular se encarga de administrar el arreglo vacio
+            
+            //creamos una instancia de nuestro modulo
+            //$scope nos permitira acceder a los elemntos del alcance del controlador y los elemntos del controlador accederan en si mismos.
+            //la funcion anonima recibira $scope para que podamos hacer uso de los elemntos del alcance del controlador
+            miAplicacion.controller('controlador1', ['$scope', function($scope){
+                
+                //definir que modifique una variable del html
+                $scope.cantidad=1;
+                //definimos un nuevo valor de $scope llamado precio el cual sera llamado desde el html
+                $scope.precio = 2.15
+                
+            } ] )
+        
+        
+        </script>
     </body>
 </html>
