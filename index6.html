@@ -1,0 +1,51 @@
+<!doctype html>
+<html data-ng-app="accion">
+    <head>
+        <meta charset="utf-8">
+        <title>Metodos</title>
+        <!--script src="<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.11/angular.min.js"></script-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.11/angular.min.js"></script>
+    </head>
+    <body>
+        
+        
+        <div ng-controller="controlador1">
+            
+            <h1>Nombres</h1>
+            <ul>
+                
+                <li ng-repeat= "nombreIndividual in nombresSimples">
+                    {{ nombreIndividual }}
+                </li>
+                
+                
+            </ul>
+            <h1> Héroes de acción</h1>
+            <ul>
+                <li ng-repeat = "heroe in heroes">
+                    {{ heroe.nombre }}  {{ heroe.apellido }}
+                </li>
+            
+            </ul>
+        
+        </div>
+        
+        
+        <script>
+            
+            var miAplicacion = angular.module( 'accion',[] )
+            miAplicacion.controller('controlador1', ['$scope', function($scope){
+                
+                $scope.nombresSimples= [ "Alois", "Gardenzio", "Carlos" ];
+                //AHORA USAREMOS OBJETOS
+                $scope.heroes = [
+                    {nombre: "Arnold", apellido: "Schwarzenegger"},
+                    {nombre: "Silvester", apellido: "Stallone"},
+                    {nombre: "Chuck", apellido: "Norris"},
+                ]
+            }])
+            
+        
+        </script>
+    </body>
+</html>
