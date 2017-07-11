@@ -1,0 +1,61 @@
+<!doctype html>
+<html data-ng-app="css">
+    <head>
+        <meta charset="utf-8">
+        <title>AngularJS y CSS</title>
+        <style>
+            div{
+                width: 600px;
+                margin: 10px auto;
+                text-align: center;
+            }
+            .contenedor{ border: solid 2px;}
+            .angular{
+                background: red;
+                font-size: 40px;
+                padding: 0 40px;
+                color: #fff;
+            }
+        </style>
+        <!--script src="<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.11/angular.min.js"></script-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.11/angular.min.js"></script>
+    </head>
+    <body>
+        
+        
+        <div ng-controller="controlador1">
+            <div class="contenedor">
+            <p ng-style="estilos">Yo controlo el estilo de mis aplicaciones con <span ng-class="claseEspecial">AngularJS</span></p>
+            </div>
+            
+            <button data-ng-click="cambiarPropiedades()">Cambiar propiedades</button>
+            <button data-ng-click="cambiarClases()">Cambiar clases</button>
+            <button data-ng-click="reiniciarClases()">Eliminar estilos</button>
+            
+        </div>
+        
+        
+        <script>
+            
+            var miAplicacion = angular.module( 'css',[] )
+            miAplicacion.controller('controlador1', ['$scope', function($scope){
+                
+                //angular js tambien tiene control sobre el estilo de las aplicaciones
+                
+                $scope.cambiarPropiedades= function(){
+                    $scope.estilos= { "background": "blue", 'color':'#ffeb80'}
+                }
+                $scope.cambiarClases = function(){
+                    $scope.claseEspecial="angular";
+                }
+                $scope.reiniciarClases=function(){
+                    $scope.claseEspecial="";
+                    $scope.estilos="";
+                }
+                
+            }])
+            
+        
+        </script>
+    </body>
+</html>
