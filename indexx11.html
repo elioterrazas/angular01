@@ -1,0 +1,50 @@
+<!doctype html>
+<html data-ng-app="css">
+    <head>
+        <meta charset="utf-8">
+        <title>AngularJS y CSS</title>
+        <style>
+            .alerta{
+                width: 400px;
+                height: 200px;
+                line-height: 200px;
+                text-align: center;
+                font-family: monospace;
+                color:#fff;
+                background: #000;
+                font-size: 22px
+            }
+        </style>
+        <!--script src="<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.11/angular.min.js"></script-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.11/angular.min.js"></script>
+    </head>
+    <body>
+        
+        
+        <div ng-controller="controlador1">
+            
+            <img ng-src="{{imagenActual}}" >
+            
+            <button ng-click="mostraImagen('angularjsimg.jpg')">Imagen 1</button>
+            <button ng-click="mostraImagen('codigoimg.jpg')">Imagen 2</button>
+            <!--importante mensionar que data-ng-show= trabaja solo con valores booleanos true o false-->
+            
+            
+        </div>
+        
+        
+        <script>
+            //intercambiar imagenes
+            //simple tecnica para administrar de forma dinamica mis imagenes con angular
+            var miAplicacion = angular.module( 'css',[] )
+            miAplicacion.controller('controlador1', ['$scope', function($scope){
+                $scope.imagenActual='angularjsimg.jpg';
+                $scope.mostraImagen = function( _imagen){
+                    $scope.imagenActual= _imagen;
+                }
+            }])
+            
+        
+        </script>
+    </body>
+</html>
