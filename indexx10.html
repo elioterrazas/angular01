@@ -1,0 +1,54 @@
+<!doctype html>
+<html data-ng-app="css">
+    <head>
+        <meta charset="utf-8">
+        <title>AngularJS y CSS</title>
+        <style>
+            .alerta{
+                width: 400px;
+                height: 200px;
+                line-height: 200px;
+                text-align: center;
+                font-family: monospace;
+                color:#fff;
+                background: #000;
+                font-size: 22px
+            }
+        </style>
+        <!--script src="<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.11/angular.min.js"></script-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.11/angular.min.js"></script>
+    </head>
+    <body>
+        
+        
+        <div ng-controller="controlador1">
+            <button data-ng-click="mostrar()">Revelar Secreto</button>
+            <button data-ng-click="ocultar()">Volver al Misterio</button>
+            <!--importante mensionar que data-ng-show= trabaja solo con valores booleanos true o false-->
+            <div class="alerta" data-ng-show="visibilidadMensaje">
+                Este es un mensaje secreto
+            </div>
+            
+        </div>
+        
+        
+        <script>
+            
+            var miAplicacion = angular.module( 'css',[] )
+            miAplicacion.controller('controlador1', ['$scope', function($scope){
+            //controlar vidibilidad de mis elementos    
+                
+                $scope.visibilidadMensaje=false;
+                $scope.mostrar=function(){
+                    $scope.visibilidadMensaje=true;
+                }
+                $scope.ocultar=function(){
+                    $scope.visibilidadMensaje=false;
+                }
+                
+            }])
+            
+        
+        </script>
+    </body>
+</html>
